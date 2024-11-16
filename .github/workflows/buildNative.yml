@@ -1,6 +1,9 @@
 #@formatter:off
 name: Native Build
 
+on: push
+
+
 jobs:
     build:
         strategy:

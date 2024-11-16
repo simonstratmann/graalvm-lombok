@@ -26,13 +26,13 @@ jobs:
                     distribution: 'adopt'
                     cache: 'maven'
 
-            -   name: NativeImage
-                uses: graalvm/setup-graalvm@v1
-                with:
-                    java-version: '23'
-                    distribution: 'graalvm-community'
-                    cache: 'maven'
-                    github-token: ${{ secrets.GITHUB_TOKEN }}
+#            -   name: NativeImage
+#                uses: graalvm/setup-graalvm@v1
+#                with:
+#                    java-version: '23'
+#                    distribution: 'graalvm-community'
+#                    cache: 'maven'
+#                    github-token: ${{ secrets.GITHUB_TOKEN }}
 
             -   name: "Install all with Maven"
                 run: mvn --batch-mode clean install -DskipTests -T 1C

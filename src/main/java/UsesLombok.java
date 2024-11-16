@@ -1,11 +1,10 @@
 import lombok.Data;
 
+@SuppressWarnings("unused")
 @Data
 public class UsesLombok implements Comparable<UsesLombok> {
 
     private String version;
-    private String date;
-    private boolean isFinal = true;
 
     @Override
     public int compareTo(UsesLombok o) {

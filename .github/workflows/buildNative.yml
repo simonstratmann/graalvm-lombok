@@ -3,15 +3,12 @@ name: Native Build
 
 on: push
 
-
 jobs:
     build:
         strategy:
             matrix:
-                os: [ ubuntu-20.04, windows-latest ]
+                os: [ ubuntu-20.04]
             fail-fast: false
-        env:
-            HYDRA_NATIVE_BUILD: true
         runs-on: ${{ matrix.os }}
         steps:
             -   uses: actions/checkout@v4
@@ -26,13 +23,5 @@ jobs:
                     distribution: 'adopt'
                     cache: 'maven'
 
-#            -   name: NativeImage
-#                uses: graalvm/setup-graalvm@v1
-#                with:
-#                    java-version: '23'
-#                    distribution: 'graalvm-community'
-#                    cache: 'maven'
-#                    github-token: ${{ secrets.GITHUB_TOKEN }}
-
-            -   name: "Install all with Maven"
-                run: mvn --batch-mode clean install -DskipTests -T 1C
+            -   name: "Install with Maven"
+                run: mvn --batch-mode clean install
